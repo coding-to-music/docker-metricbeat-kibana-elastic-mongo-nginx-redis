@@ -1,28 +1,56 @@
+# docker-metricbeat-kibana-elastic-mongo-nginx-redis
+
+# 🚀 Elasticsearch Metricbeat example configuration to monitor Host and Services with docker 🚀
+
+https://github.com/coding-to-music/docker-metricbeat-kibana-elastic-mongo-nginx-redis
+
+From / By https://github.com/ypereirareis
+
+https://github.com/ypereirareis/docker-metricbeat-example
+
+## Environment variables:
+
+```java
+
+```
+
+## GitHub
+
+```java
+git init
+git add .
+git remote remove origin
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:coding-to-music/docker-metricbeat-kibana-elastic-mongo-nginx-redis.git
+git push -u origin main
+```
+
 # docker-metricbeat-example
 
 Docker and Metricbeat configurations examples.
 Learn how to use Docker and Metricbeat to monitor you host system, all your nodes, your docker containers and all your (distributed) services.
 
 **Warning**
+
 > This project is built for example and testing.  
 > DO NOT use any part of it in production unless you know exactly what you are doing.
 
 ## Software versions
 
-| Name  | Version |
-| ------------- | ------------- |
-| Docker  | 17.10.0-ce (f4ffd25) (Tue Oct 17 19:05:05 2017)  |
-| Docker-compose  | 1.17.0, build ac53b73 |
-| Elasticsearch  | 6.0.0 |
-| Metricbeat  | 6.0.0 |
-| Kibana  | 6.0.0 |
-| Apache | 2.4.29-alpine |
-| MongoDB | 3.5.13-jessie |
-| MySQL | 8.0 |
-| Nginx | 1.13.7-alpine |
-| RabbitMQ | 3.6.14-management-alpine |
-| Redis | 3.2.11-alpine |
-
+| Name           | Version                                         |
+| -------------- | ----------------------------------------------- |
+| Docker         | 17.10.0-ce (f4ffd25) (Tue Oct 17 19:05:05 2017) |
+| Docker-compose | 1.17.0, build ac53b73                           |
+| Elasticsearch  | 6.0.0                                           |
+| Metricbeat     | 6.0.0                                           |
+| Kibana         | 6.0.0                                           |
+| Apache         | 2.4.29-alpine                                   |
+| MongoDB        | 3.5.13-jessie                                   |
+| MySQL          | 8.0                                             |
+| Nginx          | 1.13.7-alpine                                   |
+| RabbitMQ       | 3.6.14-management-alpine                        |
+| Redis          | 3.2.11-alpine                                   |
 
 ## Install
 
@@ -87,7 +115,7 @@ kibana uses an image, skipping
 
 ## Host Monitoring
 
-We are assuming your `docker0` interface IP is: `inet 172.17.0.1  netmask 255.255.0.0  broadcast 0.0.0.0`
+We are assuming your `docker0` interface IP is: `inet 172.17.0.1 netmask 255.255.0.0 broadcast 0.0.0.0`
 If not the case, please adjust the configuration in `docker-compose.yml` file for service `metricbeat-host`.
 
 ```yaml
@@ -105,23 +133,23 @@ metricbeat-host:
 Start monitoring your host.
 
 ```bash
-$ make start-monitoring-host 
-Creating metricbeat-elasticsearch ... 
+$ make start-monitoring-host
+Creating metricbeat-elasticsearch ...
 Creating metricbeat-elasticsearch ... done
 metricbeat-elasticsearch is up-to-date
-Creating metricbeat-kibana ... 
+Creating metricbeat-kibana ...
 Creating metricbeat-kibana ... done
 Waiting for elasticsearch...
-Creating metricbeat-metricbeat-host ... 
+Creating metricbeat-metricbeat-host ...
 Creating metricbeat-metricbeat-host ... done
 ```
 
-* You can check everything is OK, and you should have 3 containers running...
-* Be careful Elasticsearch and Kibana ports are exposed on 0.0.0.0 network (every IP address).
-* Default Metricbeat dashboard are automatically loaded into Kibana (`setup.dashboards.enabled: true`)
+- You can check everything is OK, and you should have 3 containers running...
+- Be careful Elasticsearch and Kibana ports are exposed on 0.0.0.0 network (every IP address).
+- Default Metricbeat dashboard are automatically loaded into Kibana (`setup.dashboards.enabled: true`)
 
 ```bash
-$ docker ps                 
+$ docker ps
 CONTAINER ID        IMAGE                                                 COMMAND                  CREATED             STATUS              PORTS                              NAMES
 e25a76b4f1e4        dockermetricbeatexample_metricbeat-host               "/usr/local/bin/do..."   2 minutes ago       Up 2 seconds                                           metricbeat-metricbeat-host
 27668d971ddf        docker.elastic.co/kibana/kibana:6.0.0                 "/bin/bash /usr/lo..."   2 minutes ago       Up 2 minutes        0.0.0.0:5666->5601/tcp             metricbeat-kibana
@@ -130,9 +158,9 @@ af93d8214167        docker.elastic.co/elasticsearch/elasticsearch:6.0.0   "/usr/
 
 If everything is fine, you should be able to access Kibana, and Monitoring dashboard:
 
-* Kibana => [http://127.0.0.1:5666](http://127.0.0.1:5666/app/kibana)
-* Dashboard list => [http://127.0.0.1:5666/app/kibana#/dashboards?_g=()](http://127.0.0.1:5666/app/kibana#/dashboards?_g=())
-* System Overview => [http://127.0.0.1:5666/app/kibana#/dashboard/Metricbeat-system-overview?_g=()](http://127.0.0.1:5666/app/kibana#/dashboard/Metricbeat-system-overview?_g=())
+- Kibana => [http://127.0.0.1:5666](http://127.0.0.1:5666/app/kibana)
+- Dashboard list => [http://127.0.0.1:5666/app/kibana#/dashboards?\_g=()](<http://127.0.0.1:5666/app/kibana#/dashboards?_g=()>)
+- System Overview => [http://127.0.0.1:5666/app/kibana#/dashboard/Metricbeat-system-overview?\_g=()](<http://127.0.0.1:5666/app/kibana#/dashboard/Metricbeat-system-overview?_g=()>)
 
 **Host Dashboard**
 
@@ -170,9 +198,9 @@ make stop-all
 
 #### Apache
 
-* Compose file: [./docker-compose.apache.yml](./docker-compose.apache.yml)
-* Start: `make start-apache`
-* Stop: `make stop-apache`
+- Compose file: [./docker-compose.apache.yml](./docker-compose.apache.yml)
+- Start: `make start-apache`
+- Stop: `make stop-apache`
 
 ```bash
 4f4cb6e72a39    httpd:2.4   "httpd-foreground"  11 minutes ago  Up About a minute   80/tcp  metricbeat-apache
@@ -180,9 +208,9 @@ make stop-all
 
 #### MongoDB
 
-* Compose file: [./docker-compose.mongodb.yml](./docker-compose.mongodb.yml)
-* Start: `make start-mongodb`
-* Stop: `make stop-mongodb`
+- Compose file: [./docker-compose.mongodb.yml](./docker-compose.mongodb.yml)
+- Start: `make start-mongodb`
+- Stop: `make stop-mongodb`
 
 ```bash
 a379163bc90d    mongo   "docker-entrypoint..."   11 minutes ago    Up About a minute   27017/tcp    metricbeat-mongodb
@@ -190,9 +218,9 @@ a379163bc90d    mongo   "docker-entrypoint..."   11 minutes ago    Up About a mi
 
 #### MySQL
 
-* Compose file: [./docker-compose.mysql.yml](./docker-compose.mysql.yml)
-* Start: `make start-mysql`
-* Stop: `make stop-mysql`
+- Compose file: [./docker-compose.mysql.yml](./docker-compose.mysql.yml)
+- Start: `make start-mysql`
+- Stop: `make stop-mysql`
 
 ```bash
 3ae8e0c7c1e3    mysql:8.0   "docker-entrypoint..."   11 minutes ago   Up About a minute   3306/tcp metricbeat-mysql
@@ -200,9 +228,9 @@ a379163bc90d    mongo   "docker-entrypoint..."   11 minutes ago    Up About a mi
 
 #### Nginx
 
-* Compose file: [./docker-compose.nginx.yml](./docker-compose.nginx.yml)
-* Start: `make start-nginx`
-* Stop: `make stop-nginx`
+- Compose file: [./docker-compose.nginx.yml](./docker-compose.nginx.yml)
+- Start: `make start-nginx`
+- Stop: `make stop-nginx`
 
 ```bash
 da1a01c36c4c    nginx:1.13.7-alpine "nginx -g 'daemon ..."   11 minutes ago   Up About a minute   80/tcp  metricbeat-nginx
@@ -210,9 +238,9 @@ da1a01c36c4c    nginx:1.13.7-alpine "nginx -g 'daemon ..."   11 minutes ago   Up
 
 #### RabbitMq
 
-* Compose file: [./docker-compose.rabbitmq.yml](./docker-compose.rabbitmq.yml)
-* Start: `make start-rabbitmq`
-* Stop: `make stop-rabbitmq`
+- Compose file: [./docker-compose.rabbitmq.yml](./docker-compose.rabbitmq.yml)
+- Start: `make start-rabbitmq`
+- Stop: `make stop-rabbitmq`
 
 ```bash
 6c072660a008    bijukunjummen/rabbitmq-server:3.6.5 "/bin/sh -c /opt/r..."   14 minutes ago      Up 2 seconds   4369/tcp, 5672/tcp, 9100-9105/tcp, 25672/tcp, 127.0.0.1:1234->15672/tcp   metricbeat-rabbitmq
@@ -220,9 +248,9 @@ da1a01c36c4c    nginx:1.13.7-alpine "nginx -g 'daemon ..."   11 minutes ago   Up
 
 #### Redis
 
-* Compose file: [./docker-compose.redis.yml](./docker-compose.redis.yml)
-* Start: `make start-redis`
-* Stop: `make stop-redis`
+- Compose file: [./docker-compose.redis.yml](./docker-compose.redis.yml)
+- Start: `make start-redis`
+- Stop: `make stop-redis`
 
 ```bash
 52be9d662f8f    redis:3.2.11-alpine "docker-entrypoint..."   11 minutes ago Up About a minute   6379/tcp    metricbeat-redis

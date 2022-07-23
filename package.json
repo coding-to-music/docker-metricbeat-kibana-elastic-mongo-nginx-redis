@@ -1,0 +1,21 @@
+{
+  "name": "docker-metricbeat-kibana-elastic-mongo-nginx-redis",
+  "version": "1.0.0",
+  "description": "Docker and Metricbeat configurations examples. Learn how to use Docker and Metricbeat to monitor you host system, all your nodes, your docker containers and all your (distributed) services.",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "git add . && git commit -m Build && git push",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ypereirareis/docker-metricbeat-example.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ypereirareis/docker-metricbeat-example/issues"
+  },
+  "homepage": "https://github.com/ypereirareis/docker-metricbeat-example#readme"
+}
