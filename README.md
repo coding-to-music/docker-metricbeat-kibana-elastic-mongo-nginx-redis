@@ -159,11 +159,31 @@ Creating metricbeat-metricbeat-host ... done
 - Default Metricbeat dashboard are automatically loaded into Kibana (`setup.dashboards.enabled: true`)
 
 ```bash
-$ docker ps
+docker ps
+```
+
+Output:
+
+```bash
 CONTAINER ID        IMAGE                                                 COMMAND                  CREATED             STATUS              PORTS                              NAMES
 e25a76b4f1e4        dockermetricbeatexample_metricbeat-host               "/usr/local/bin/do..."   2 minutes ago       Up 2 seconds                                           metricbeat-metricbeat-host
 27668d971ddf        docker.elastic.co/kibana/kibana:6.0.0                 "/bin/bash /usr/lo..."   2 minutes ago       Up 2 minutes        0.0.0.0:5666->5601/tcp             metricbeat-kibana
 af93d8214167        docker.elastic.co/elasticsearch/elasticsearch:6.0.0   "/usr/local/bin/do..."   2 minutes ago       Up 2 minutes        9300/tcp, 0.0.0.0:9222->9200/tcp   metricbeat-elasticsearch
+```
+
+## This is what I see with docker ps
+
+```
+CONTAINER ID   IMAGE                                                                COMMAND                  CREATED          STATUS          PORTS                                                                      NAMES
+7c401b945010   mysql:8.0                                                            "docker-entrypoint.s…"   8 minutes ago    Up 8 minutes    3306/tcp, 33060/tcp                                                        metricbeat-mysql
+5925b1865dbb   mongo:3.5.13-jessie                                                  "docker-entrypoint.s…"   8 minutes ago    Up 8 minutes    27017/tcp                                                                  metricbeat-mongodb
+763f7b42ef8a   rabbitmq:3.6.14-management-alpine                                    "docker-entrypoint.s…"   8 minutes ago    Up 8 minutes    4369/tcp, 5671-5672/tcp, 15671/tcp, 25672/tcp, 127.0.0.1:1234->15672/tcp   metricbeat-rabbitmq
+40147abfa044   redis:3.2.11-alpine                                                  "docker-entrypoint.s…"   8 minutes ago    Up 8 minutes    6379/tcp                                                                   metricbeat-redis
+7193fb634a6f   nginx:1.13.7-alpine                                                  "nginx -g 'daemon of…"   8 minutes ago    Up 8 minutes    80/tcp                                                                     metricbeat-nginx
+a14277016f2e   docker-metricbeat-kibana-elastic-mongo-nginx-redis_metricbeat        "/usr/local/bin/cust…"   9 minutes ago    Up 9 minutes                                                                               metricbeat-metricbeat-services
+5a5e846ec3e6   docker-metricbeat-kibana-elastic-mongo-nginx-redis_metricbeat-host   "/usr/local/bin/cust…"   10 minutes ago   Up 10 minutes                                                                              metricbeat-metricbeat-host
+846d1f6c51f0   docker.elastic.co/kibana/kibana:6.0.0                                "/bin/bash /usr/loca…"   10 minutes ago   Up 10 minutes   0.0.0.0:5666->5601/tcp, :::5666->5601/tcp                                  metricbeat-kibana
+d09a8738178b   docker.elastic.co/elasticsearch/elasticsearch:6.0.0                  "/usr/local/bin/dock…"   11 minutes ago   Up 11 minutes   9300/tcp, 0.0.0.0:9222->9200/tcp, :::9222->9200/tcp                        metricbeat-elasticsearch
 ```
 
 If everything is fine, you should be able to access Kibana, and Monitoring dashboard:
