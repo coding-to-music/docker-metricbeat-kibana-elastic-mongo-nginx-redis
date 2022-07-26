@@ -64,7 +64,12 @@ Setup your host (**sudo/root needed**).
 You shoud have something like this.
 
 ```bash
-$ make setup
+make setup
+```
+
+Output:
+
+```bash
 => ACLs on /var/run/docker.sock OK
 vm.max_map_count = 262144
 => vm.max_map_count=262144 OK
@@ -133,7 +138,12 @@ metricbeat-host:
 Start monitoring your host.
 
 ```bash
-$ make start-monitoring-host
+make start-monitoring-host
+```
+
+Output:
+
+```bash
 Creating metricbeat-elasticsearch ...
 Creating metricbeat-elasticsearch ... done
 metricbeat-elasticsearch is up-to-date
